@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+        padding: 100px;
+      }
+      form{
+        height: 500px;
+        border: 2px solid black;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 100px;
+      }
+      label,input{
+        height: 30px;
+        width: 300px;
+        margin-top: 20px;
+      }
+    </style>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <caption><h1> <h1 style="text-decoration: underline;">Update Employee details</h1></h1></caption>
+          <label>Name :</label>
+          <input type="text" name="name1" value="{{x.name}}">
+          <label>Phone :</label>
+          <input type="number" name="name2" value="{{x.phone}}">
+          <label>Email Id :</label>
+          <input type="email" name="name3" value="{{x.email}}"> <br>
+          <input style="margin-left: 60px;" type="submit" value="Edit Rcord" >
+      </form>
+</body>
+</html>

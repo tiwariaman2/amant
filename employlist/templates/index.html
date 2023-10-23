@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+   .a{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-evenly;
+
+    
+   }
+   .form{
+    text-align: left;
+    font-size: 3vh;
+
+   }
+   .form input{
+    height: 5vh;
+   width: 35vw;
+   margin: 10px 0px;
+   padding: 2px 10px;
+   font-size: 3vh;
+
+   }
+   .form input[type="submit"]{
+    height: 5vh;
+   width: 150px;
+   margin: 10px 0px;
+   background-color: red;
+   color: white;
+   border: none;
+   border-radius: 20px;
+   
+
+   }
+
+  
+
+    
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center;">CRUD operations</h1>
+    <br>
+   <section class="a">
+    <div class="form">
+      <form  action="submit" method="POST">
+        {% csrf_token %}
+        <caption>
+          <h3 style="text-decoration: underline;">Enter Employee details</h3>
+        </caption>
+          <label>Name :</label>  <br>
+          <input type="text" name="name">  <br>
+          <label>Phone No. :</label>  <br>
+          <input type="number" name="phone">  <br>
+          <label>Email Id :</label>  <br>
+          <input type="email" name="email">  <br>
+          <input class="button" type="submit" value="submit" >
+      </form>
+    </div>
+    <div class="table">
+      <table>
+        <caption>
+          <h3 style="text-decoration: underline;">Employee List</h3>
+        </caption>
+        <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <!-- <th>Email Id</th> -->
+          <th>Actions</th>
+        </tr>
+        {% for i in x %}
+        <tr>
+          <td>{{i.name}}</td>
+          <td>{{i.phone}}</td>
+          <!-- <td>{{i.email}}</td> -->
+          <td>
+            <a href="edit/{{i.id}}"
+              ><button
+                class="button"
+                style="background-color: blue; color: white;width: 50px;border: none;cursor: pointer;"
+                type="submit"
+                value="Update"
+              >
+                Edit
+              </button></a
+            >
+            <a href="delete/{{i.id}}">
+              <button
+                class="button"
+                style="background-color: red; color: white;width: 50px;border: none;cursor: pointer;"
+                type="submit"
+                value="Delete"
+              >
+                Delete
+              </button></a
+            >
+           <a href="view/{{i.id}}"> <button
+              class="button"
+              style="background-color: blue; color: white;width: 50px;border: none;cursor: pointer;"
+              type="submit"
+              value="View"
+            >
+              View
+            </button></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+   </section>
+    
+    
+  </body>
+</html>
